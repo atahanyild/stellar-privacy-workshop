@@ -59,7 +59,7 @@ jobs:
           cache-targets: "true"
 
       - name: Install wasm-bindgen-cli
-        run: cargo install wasm-bindgen-cli --version 0.2.108 --locked
+        run: cargo install wasm-bindgen-cli --version 0.2.120 --locked
 
       - name: Run wasm tests
         run: cargo test --target wasm32-unknown-unknown -p stellar
