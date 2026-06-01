@@ -61,18 +61,30 @@ The Frontend includes the [user-facing part](#transaction-flow) and an example o
 
 If you want to try it out:
 
-1. Deploy the contracts to a Stellar network:
+1. Create and fund a deployer identity:
     ```bash
-    ./deployments/scripts/deploy.sh <network> \         # e.g. testnet
-      --deployer <identity> \                           # Must be added in stellar-cli keys
-      --asp-levels 10 \                                 # Number of levels in the ASP trees
-      --pool-levels 10 \                                # Number of levels in the pool Merkle tree
-      --max-deposit 1000000000 \                        # Maximum deposit amount (in Stroops)
-      --vk-file deployments/testnet/circuit_keys/policy_tx_2_2_vk.json # Verification key file
+    stellar keys generate deployer --network testnet --fund
+    stellar keys address deployer
+    ```
+
+   The deploy script must receive a Stellar CLI identity name, secret key, or seed phrase that can sign transactions. A public `G...` address alone cannot sign. If you need to deploy from an existing account, import that account into Stellar CLI instead of generating a new one:
+    ```bash
+    stellar keys add deployer --seed-phrase
+    stellar keys address deployer
+    ```
+
+2. Deploy the contracts to a Stellar network:
+    ```bash
+    ./deployments/scripts/deploy.sh testnet \
+      --deployer deployer \
+      --asp-levels 10 \
+      --pool-levels 10 \
+      --max-deposit 1000000000 \
+      --vk-file deployments/testnet/circuit_keys/policy_tx_2_2_vk.json
     ```
    If you already have deployed contracts, make sure their addresses are updated in `deployments/testnet/deployments.json`.
 
-2. Serve frontend
+3. Serve frontend
     ```bash
       make serve
     ```
@@ -80,7 +92,7 @@ If you want to try it out:
     You might need to delete the browser cache from previous runs. Go to `Application` -> `Clear storage`.
 
 
-3. The pool is ready to use. But you will need to populate the ASP membership smart contracts with some public keys. You can do it directly from the stellar-cli:
+4. The pool is ready to use. But you will need to populate the ASP membership smart contracts with some public keys. You can do it directly from the stellar-cli:
     ```bash
     stellar contract invoke --id <CONTRACT_ADDRESS> --source-account <ASP_ADMIN_ACCOUNT> -- insert_leaf --leaf <LEAF_VALUE> # See circuit for leaf format
     ```
@@ -91,7 +103,7 @@ If you want to try it out:
     This will prompt you to type your seed phrase and will enable you to deploy contracts with the same account you have on your browser wallet.
 
 
-4. Go back to `http://localhost:8080` and try it out!
+5. Go back to `http://localhost:8080` and try it out!
 
 ### Architecture Overview
 
