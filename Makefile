@@ -5,11 +5,17 @@ PUBLIC_URL ?= /
 BUILD_TESTS ?=
 RELEASE ?=
 
+HOMEBREW_LLVM_CLANG := $(firstword $(wildcard /opt/homebrew/opt/llvm/bin/clang /usr/local/opt/llvm/bin/clang))
+ifneq ($(HOMEBREW_LLVM_CLANG),)
+export CC_wasm32_unknown_unknown ?= $(HOMEBREW_LLVM_CLANG)
+endif
+
 .PHONY: release
 release: RELEASE := 1
 release: build
 
 .PHONY: serve
+serve: RELEASE := 1
 serve: install circuits-build
 	# --dist $(DIST_DIR) overrides the dist_dir set in the trunk.toml
 	# it's useful for generating a different serving path
@@ -17,6 +23,7 @@ serve: install circuits-build
 	trunk serve --dist $(DIST_DIR) --public-url $(PUBLIC_URL)
 
 .PHONY: build
+build: RELEASE := 1
 build: install circuits-build
 	@echo "Building frontend with trunk..."
 	unset NO_COLOR && export PUBLIC_URL=$(PUBLIC_URL) && \
