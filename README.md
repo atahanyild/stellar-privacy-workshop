@@ -11,6 +11,32 @@
 [![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=flat&logo=telegram&logoColor=white)](https://t.me/stellar_privacy)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/groups/18809039/)
 
+## Codebase Knowledge Graph
+
+This repository includes an Understand Anything knowledge graph at `.understand-anything/knowledge-graph.json`.
+
+To regenerate or update the graph from the repository root, run:
+
+```text
+/understand
+```
+
+To open the interactive dashboard for the existing graph, run:
+
+```text
+/understand-dashboard
+```
+
+You can also launch the dashboard manually:
+
+```bash
+PROJECT_ROOT="$(pwd)"
+cd ~/.understand-anything/repo/understand-anything-plugin/packages/dashboard
+GRAPH_DIR="$PROJECT_ROOT" npx vite --host 127.0.0.1
+```
+
+The dashboard prints a local URL with a `?token=...` query parameter. Use the full tokenized URL when opening it in a browser.
+
 > [!WARNING]
 > This project is a **Proof of Concept (PoC)** and prototype implementation. It is intended for research and educational purposes only. The code has not been audited and should not be used in production environments with real assets.
 
