@@ -1,0 +1,1762 @@
+{
+  "name": "stellar-private-payments",
+  "description": "A proof-of-concept privacy-preserving payment system for the Stellar network, enabling private deposits, transfers, and withdrawals via Groth16 zero-knowledge proofs (Circom circuits) running in the browser through WebAssembly, with Soroban smart contracts enforcing Association Set Provider (ASP) membership and non-membership controls. Note: this project has over 100 source files; consider scoping analysis to a subdirectory for faster results.",
+  "languages": [
+    "circom",
+    "css",
+    "html",
+    "javascript",
+    "json",
+    "makefile",
+    "markdown",
+    "rust",
+    "shell",
+    "sql",
+    "toml",
+    "yaml"
+  ],
+  "frameworks": [
+    "Soroban",
+    "Circom",
+    "Groth16",
+    "WebAssembly",
+    "Trunk",
+    "Tailwind CSS",
+    "esbuild",
+    "Stellar SDK",
+    "Freighter",
+    "ark-groth16",
+    "ark-bn254",
+    "GitHub Actions"
+  ],
+  "files": [
+    {
+      "path": "_typos.toml",
+      "language": "toml",
+      "sizeLines": 17,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".cargo/config.toml",
+      "language": "toml",
+      "sizeLines": 13,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".githooks/pre-push",
+      "language": "unknown",
+      "sizeLines": 57,
+      "fileCategory": "code"
+    },
+    {
+      "path": ".github/pull_request_template.md",
+      "language": "markdown",
+      "sizeLines": 31,
+      "fileCategory": "docs"
+    },
+    {
+      "path": ".github/workflows/build-and-test.yml",
+      "language": "yaml",
+      "sizeLines": 35,
+      "fileCategory": "infra"
+    },
+    {
+      "path": ".github/workflows/contracts-build.yml",
+      "language": "yaml",
+      "sizeLines": 51,
+      "fileCategory": "infra"
+    },
+    {
+      "path": ".github/workflows/coverage-pr.yml",
+      "language": "yaml",
+      "sizeLines": 167,
+      "fileCategory": "infra"
+    },
+    {
+      "path": ".github/workflows/coverage.yml",
+      "language": "yaml",
+      "sizeLines": 36,
+      "fileCategory": "infra"
+    },
+    {
+      "path": ".github/workflows/dependency-audit.yml",
+      "language": "yaml",
+      "sizeLines": 45,
+      "fileCategory": "infra"
+    },
+    {
+      "path": ".github/workflows/deployment.yml",
+      "language": "yaml",
+      "sizeLines": 86,
+      "fileCategory": "infra"
+    },
+    {
+      "path": ".github/workflows/linter.yml",
+      "language": "yaml",
+      "sizeLines": 44,
+      "fileCategory": "infra"
+    },
+    {
+      "path": ".github/workflows/semver-checks.yml",
+      "language": "yaml",
+      "sizeLines": 91,
+      "fileCategory": "infra"
+    },
+    {
+      "path": ".github/workflows/test-ignored.yml",
+      "language": "yaml",
+      "sizeLines": 35,
+      "fileCategory": "infra"
+    },
+    {
+      "path": ".github/workflows/ub-detection.yml",
+      "language": "yaml",
+      "sizeLines": 38,
+      "fileCategory": "infra"
+    },
+    {
+      "path": ".github/workflows/wasm-build.yml",
+      "language": "yaml",
+      "sizeLines": 68,
+      "fileCategory": "infra"
+    },
+    {
+      "path": ".understand-anything/.understandignore",
+      "language": "unknown",
+      "sizeLines": 55,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/admin.html",
+      "language": "html",
+      "sizeLines": 298,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "app/ARCHITECTURE.md",
+      "language": "markdown",
+      "sizeLines": 140,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "app/crates/core/prover/Cargo.toml",
+      "language": "toml",
+      "sizeLines": 36,
+      "fileCategory": "config"
+    },
+    {
+      "path": "app/crates/core/prover/src/crypto.rs",
+      "language": "rust",
+      "sizeLines": 189,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/crates/core/prover/src/encryption.rs",
+      "language": "rust",
+      "sizeLines": 465,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/crates/core/prover/src/flows.rs",
+      "language": "rust",
+      "sizeLines": 1037,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/crates/core/prover/src/lib.rs",
+      "language": "rust",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/crates/core/prover/src/merkle.rs",
+      "language": "rust",
+      "sizeLines": 405,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/crates/core/prover/src/notes.rs",
+      "language": "rust",
+      "sizeLines": 84,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/crates/core/prover/src/prover.rs",
+      "language": "rust",
+      "sizeLines": 529,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/crates/core/prover/src/r1cs.rs",
+      "language": "rust",
+      "sizeLines": 298,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/crates/core/prover/src/serialization.rs",
+      "language": "rust",
+      "sizeLines": 217,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/crates/core/prover/src/sparse_merkle.rs",
+      "language": "rust",
+      "sizeLines": 666,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/crates/core/prover/src/types.rs",
+      "language": "rust",
+      "sizeLines": 90,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/crates/core/state/build.rs",
+      "language": "rust",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/crates/core/state/Cargo.toml",
+      "language": "toml",
+      "sizeLines": 29,
+      "fileCategory": "config"
+    },
+    {
+      "path": "app/crates/core/state/src/disclaimer.md",
+      "language": "markdown",
+      "sizeLines": 31,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "app/crates/core/state/src/disclaimer.rs",
+      "language": "rust",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/crates/core/state/src/events_parsers.rs",
+      "language": "rust",
+      "sizeLines": 257,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/crates/core/state/src/lib.rs",
+      "language": "rust",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/crates/core/state/src/processor.rs",
+      "language": "rust",
+      "sizeLines": 54,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/crates/core/state/src/schema.sql",
+      "language": "sql",
+      "sizeLines": 179,
+      "fileCategory": "data"
+    },
+    {
+      "path": "app/crates/core/state/src/storage.rs",
+      "language": "rust",
+      "sizeLines": 1630,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/crates/core/stellar/Cargo.toml",
+      "language": "toml",
+      "sizeLines": 32,
+      "fileCategory": "config"
+    },
+    {
+      "path": "app/crates/core/stellar/src/contract_state.rs",
+      "language": "rust",
+      "sizeLines": 620,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/crates/core/stellar/src/conversions.rs",
+      "language": "rust",
+      "sizeLines": 173,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/crates/core/stellar/src/ext_data_hash.rs",
+      "language": "rust",
+      "sizeLines": 80,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/crates/core/stellar/src/indexer.rs",
+      "language": "rust",
+      "sizeLines": 184,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/crates/core/stellar/src/lib.rs",
+      "language": "rust",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/crates/core/stellar/src/rpc.rs",
+      "language": "rust",
+      "sizeLines": 648,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/crates/core/types/Cargo.toml",
+      "language": "toml",
+      "sizeLines": 26,
+      "fileCategory": "config"
+    },
+    {
+      "path": "app/crates/core/types/src/amounts.rs",
+      "language": "rust",
+      "sizeLines": 811,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/crates/core/types/src/chain_data.rs",
+      "language": "rust",
+      "sizeLines": 275,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/crates/core/types/src/ext_data.rs",
+      "language": "rust",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/crates/core/types/src/lib.rs",
+      "language": "rust",
+      "sizeLines": 429,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/crates/core/witness/Cargo.toml",
+      "language": "toml",
+      "sizeLines": 36,
+      "fileCategory": "config"
+    },
+    {
+      "path": "app/crates/core/witness/src/lib.rs",
+      "language": "rust",
+      "sizeLines": 354,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/crates/platforms/web/build.rs",
+      "language": "rust",
+      "sizeLines": 106,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/crates/platforms/web/Cargo.toml",
+      "language": "toml",
+      "sizeLines": 52,
+      "fileCategory": "config"
+    },
+    {
+      "path": "app/crates/platforms/web/src/bin/prover_worker.rs",
+      "language": "rust",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/crates/platforms/web/src/bin/storage_worker.rs",
+      "language": "rust",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/crates/platforms/web/src/client.rs",
+      "language": "rust",
+      "sizeLines": 1337,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/crates/platforms/web/src/config.rs",
+      "language": "rust",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/crates/platforms/web/src/lib.rs",
+      "language": "rust",
+      "sizeLines": 73,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/crates/platforms/web/src/protocol.rs",
+      "language": "rust",
+      "sizeLines": 204,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/crates/platforms/web/src/workers.rs",
+      "language": "rust",
+      "sizeLines": 2,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/crates/platforms/web/src/workers/prover.rs",
+      "language": "rust",
+      "sizeLines": 324,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/crates/platforms/web/src/workers/storage.rs",
+      "language": "rust",
+      "sizeLines": 719,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/css/app.css",
+      "language": "css",
+      "sizeLines": 117,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "app/index.html",
+      "language": "html",
+      "sizeLines": 1239,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "app/js/admin.js",
+      "language": "javascript",
+      "sizeLines": 650,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/js/stellar.js",
+      "language": "javascript",
+      "sizeLines": 425,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/js/ui.js",
+      "language": "javascript",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/js/ui/address-book.js",
+      "language": "javascript",
+      "sizeLines": 343,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/js/ui/core.js",
+      "language": "javascript",
+      "sizeLines": 135,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/js/ui/errors.js",
+      "language": "javascript",
+      "sizeLines": 215,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/js/ui/index.js",
+      "language": "javascript",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/js/ui/navigation.js",
+      "language": "javascript",
+      "sizeLines": 414,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/js/ui/notes-table.js",
+      "language": "javascript",
+      "sizeLines": 124,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/js/ui/onboarding-wizard.js",
+      "language": "javascript",
+      "sizeLines": 491,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/js/ui/onchain-state.js",
+      "language": "javascript",
+      "sizeLines": 192,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/js/ui/persistent-storage.js",
+      "language": "javascript",
+      "sizeLines": 135,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/js/ui/pool-events.js",
+      "language": "javascript",
+      "sizeLines": 157,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/js/ui/templates.js",
+      "language": "javascript",
+      "sizeLines": 266,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/js/ui/transactions.js",
+      "language": "javascript",
+      "sizeLines": 724,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/js/wallet.js",
+      "language": "javascript",
+      "sizeLines": 325,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/js/wasm-facade.js",
+      "language": "javascript",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "app/package.json",
+      "language": "json",
+      "sizeLines": 16,
+      "fileCategory": "config"
+    },
+    {
+      "path": "app/README.md",
+      "language": "markdown",
+      "sizeLines": 60,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "Cargo.toml",
+      "language": "toml",
+      "sizeLines": 110,
+      "fileCategory": "config"
+    },
+    {
+      "path": "circuit-keys/Cargo.toml",
+      "language": "toml",
+      "sizeLines": 20,
+      "fileCategory": "config"
+    },
+    {
+      "path": "circuit-keys/src/lib.rs",
+      "language": "rust",
+      "sizeLines": 319,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/build.rs",
+      "language": "rust",
+      "sizeLines": 1216,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/Cargo.toml",
+      "language": "toml",
+      "sizeLines": 69,
+      "fileCategory": "config"
+    },
+    {
+      "path": "circuits/COPYING",
+      "language": "unknown",
+      "sizeLines": 673,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/src/core/merkle.rs",
+      "language": "rust",
+      "sizeLines": 146,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/src/core/mod.rs",
+      "language": "rust",
+      "sizeLines": 6,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/src/keypair.circom",
+      "language": "circom",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/src/lib.rs",
+      "language": "rust",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/src/merkleProof.circom",
+      "language": "circom",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/src/merkleTree.circom",
+      "language": "circom",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/src/merkleTreeUpdater.circom",
+      "language": "circom",
+      "sizeLines": 39,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/src/policy_tx_2_2.circom",
+      "language": "circom",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/src/policyTransaction.circom",
+      "language": "circom",
+      "sizeLines": 214,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/src/poseidon2/poseidon2_compress.circom",
+      "language": "circom",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/src/poseidon2/poseidon2_const.circom",
+      "language": "circom",
+      "sizeLines": 323,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/src/poseidon2/poseidon2_hash.circom",
+      "language": "circom",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/src/poseidon2/poseidon2_perm.circom",
+      "language": "circom",
+      "sizeLines": 151,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/src/selectiveDisclosure_1.circom",
+      "language": "circom",
+      "sizeLines": 8,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/src/selectiveDisclosure.circom",
+      "language": "circom",
+      "sizeLines": 63,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/src/smt/smthash_poseidon2.circom",
+      "language": "circom",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/src/smt/smtverifier.circom",
+      "language": "circom",
+      "sizeLines": 113,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/src/smt/smtverifierlevel.circom",
+      "language": "circom",
+      "sizeLines": 52,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/src/test/circuits/keypair_test.circom",
+      "language": "circom",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/src/test/circuits/merkleProof_5.circom",
+      "language": "circom",
+      "sizeLines": 2,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/src/test/circuits/poseidon2_compress.circom",
+      "language": "circom",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/src/test/circuits/poseidon2_hash_2.circom",
+      "language": "circom",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/src/test/circuits/signature_test.circom",
+      "language": "circom",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/src/test/circuits/sparse_merkle_tree.circom",
+      "language": "circom",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/src/test/circuits/transaction2.circom",
+      "language": "circom",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/src/test/mod.rs",
+      "language": "rust",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/src/test/prove_keypair.rs",
+      "language": "rust",
+      "sizeLines": 126,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/src/test/prove_merkle.rs",
+      "language": "rust",
+      "sizeLines": 142,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/src/test/prove_policy.rs",
+      "language": "rust",
+      "sizeLines": 1455,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/src/test/prove_poseidon2.rs",
+      "language": "rust",
+      "sizeLines": 143,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/src/test/prove_selective_disclosure.rs",
+      "language": "rust",
+      "sizeLines": 226,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/src/test/prove_sparse.rs",
+      "language": "rust",
+      "sizeLines": 123,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/src/test/prove_transaction.rs",
+      "language": "rust",
+      "sizeLines": 587,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/src/test/utils/circom_tester.rs",
+      "language": "rust",
+      "sizeLines": 306,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/src/test/utils/general.rs",
+      "language": "rust",
+      "sizeLines": 119,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/src/test/utils/keypair.rs",
+      "language": "rust",
+      "sizeLines": 38,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/src/test/utils/merkle_tree.rs",
+      "language": "rust",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/src/test/utils/mod.rs",
+      "language": "rust",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/src/test/utils/sparse_merkle_tree.rs",
+      "language": "rust",
+      "sizeLines": 1046,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/src/test/utils/transaction_case.rs",
+      "language": "rust",
+      "sizeLines": 259,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/src/test/utils/transaction.rs",
+      "language": "rust",
+      "sizeLines": 132,
+      "fileCategory": "code"
+    },
+    {
+      "path": "circuits/src/transaction.circom",
+      "language": "circom",
+      "sizeLines": 140,
+      "fileCategory": "code"
+    },
+    {
+      "path": "CODEOWNERS",
+      "language": "unknown",
+      "sizeLines": 1,
+      "fileCategory": "code"
+    },
+    {
+      "path": "contracts/asp-membership/Cargo.toml",
+      "language": "toml",
+      "sizeLines": 23,
+      "fileCategory": "config"
+    },
+    {
+      "path": "contracts/asp-membership/Makefile",
+      "language": "makefile",
+      "sizeLines": 16,
+      "fileCategory": "infra"
+    },
+    {
+      "path": "contracts/asp-membership/src/lib.rs",
+      "language": "rust",
+      "sizeLines": 255,
+      "fileCategory": "code"
+    },
+    {
+      "path": "contracts/asp-membership/src/test.rs",
+      "language": "rust",
+      "sizeLines": 700,
+      "fileCategory": "code"
+    },
+    {
+      "path": "contracts/asp-non-membership/Cargo.toml",
+      "language": "toml",
+      "sizeLines": 21,
+      "fileCategory": "config"
+    },
+    {
+      "path": "contracts/asp-non-membership/Makefile",
+      "language": "makefile",
+      "sizeLines": 16,
+      "fileCategory": "infra"
+    },
+    {
+      "path": "contracts/asp-non-membership/src/lib.rs",
+      "language": "rust",
+      "sizeLines": 841,
+      "fileCategory": "code"
+    },
+    {
+      "path": "contracts/asp-non-membership/src/test.rs",
+      "language": "rust",
+      "sizeLines": 960,
+      "fileCategory": "code"
+    },
+    {
+      "path": "contracts/circom-groth16-verifier/build.rs",
+      "language": "rust",
+      "sizeLines": 116,
+      "fileCategory": "code"
+    },
+    {
+      "path": "contracts/circom-groth16-verifier/Cargo.toml",
+      "language": "toml",
+      "sizeLines": 32,
+      "fileCategory": "config"
+    },
+    {
+      "path": "contracts/circom-groth16-verifier/src/lib.rs",
+      "language": "rust",
+      "sizeLines": 144,
+      "fileCategory": "code"
+    },
+    {
+      "path": "contracts/circom-groth16-verifier/src/test.rs",
+      "language": "rust",
+      "sizeLines": 168,
+      "fileCategory": "code"
+    },
+    {
+      "path": "contracts/pool/Cargo.toml",
+      "language": "toml",
+      "sizeLines": 26,
+      "fileCategory": "config"
+    },
+    {
+      "path": "contracts/pool/Makefile",
+      "language": "makefile",
+      "sizeLines": 16,
+      "fileCategory": "infra"
+    },
+    {
+      "path": "contracts/pool/src/lib.rs",
+      "language": "rust",
+      "sizeLines": 8,
+      "fileCategory": "code"
+    },
+    {
+      "path": "contracts/pool/src/merkle_with_history.rs",
+      "language": "rust",
+      "sizeLines": 275,
+      "fileCategory": "code"
+    },
+    {
+      "path": "contracts/pool/src/pool.rs",
+      "language": "rust",
+      "sizeLines": 818,
+      "fileCategory": "code"
+    },
+    {
+      "path": "contracts/pool/src/test.rs",
+      "language": "rust",
+      "sizeLines": 455,
+      "fileCategory": "code"
+    },
+    {
+      "path": "contracts/soroban-utils/Cargo.toml",
+      "language": "toml",
+      "sizeLines": 22,
+      "fileCategory": "config"
+    },
+    {
+      "path": "contracts/soroban-utils/src/constants.rs",
+      "language": "rust",
+      "sizeLines": 3115,
+      "fileCategory": "code"
+    },
+    {
+      "path": "contracts/soroban-utils/src/lib.rs",
+      "language": "rust",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "contracts/soroban-utils/src/poseidon2.rs",
+      "language": "rust",
+      "sizeLines": 452,
+      "fileCategory": "code"
+    },
+    {
+      "path": "contracts/soroban-utils/src/utils.rs",
+      "language": "rust",
+      "sizeLines": 135,
+      "fileCategory": "code"
+    },
+    {
+      "path": "contracts/types/Cargo.toml",
+      "language": "toml",
+      "sizeLines": 17,
+      "fileCategory": "config"
+    },
+    {
+      "path": "contracts/types/src/lib.rs",
+      "language": "rust",
+      "sizeLines": 99,
+      "fileCategory": "code"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "language": "markdown",
+      "sizeLines": 180,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "deny.toml",
+      "language": "toml",
+      "sizeLines": 94,
+      "fileCategory": "config"
+    },
+    {
+      "path": "deployments/legal/licenses/LGPL-3.0.txt",
+      "language": "txt",
+      "sizeLines": 165,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "deployments/legal/README.md",
+      "language": "markdown",
+      "sizeLines": 5,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "deployments/scripts/deploy.sh",
+      "language": "shell",
+      "sizeLines": 318,
+      "fileCategory": "script"
+    },
+    {
+      "path": "deployments/scripts/package-circuits-source-bundle.sh",
+      "language": "shell",
+      "sizeLines": 83,
+      "fileCategory": "script"
+    },
+    {
+      "path": "deployments/scripts/stage-dist-legal.sh",
+      "language": "shell",
+      "sizeLines": 51,
+      "fileCategory": "script"
+    },
+    {
+      "path": "deployments/testnet/circuit_keys/policy_tx_2_2_proving_key.bin",
+      "language": "bin",
+      "sizeLines": 23162,
+      "fileCategory": "code"
+    },
+    {
+      "path": "deployments/testnet/circuit_keys/policy_tx_2_2_vk_const.rs",
+      "language": "rust",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "deployments/testnet/circuit_keys/policy_tx_2_2_vk_soroban.bin",
+      "language": "bin",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "deployments/testnet/circuit_keys/policy_tx_2_2_vk.json",
+      "language": "json",
+      "sizeLines": 113,
+      "fileCategory": "config"
+    },
+    {
+      "path": "deployments/testnet/circuit_keys/README.md",
+      "language": "markdown",
+      "sizeLines": 14,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "deployments/testnet/deployments.json",
+      "language": "json",
+      "sizeLines": 1,
+      "fileCategory": "config"
+    },
+    {
+      "path": "docs/book.toml",
+      "language": "toml",
+      "sizeLines": 8,
+      "fileCategory": "config"
+    },
+    {
+      "path": "docs/src/api.md",
+      "language": "markdown",
+      "sizeLines": 29,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/src/app.md",
+      "language": "markdown",
+      "sizeLines": 60,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/src/architecture.md",
+      "language": "markdown",
+      "sizeLines": 140,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/src/contributing.md",
+      "language": "markdown",
+      "sizeLines": 180,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/src/introduction.md",
+      "language": "markdown",
+      "sizeLines": 154,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/src/security.md",
+      "language": "markdown",
+      "sizeLines": 21,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/src/SUMMARY.md",
+      "language": "markdown",
+      "sizeLines": 8,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "e2e-tests/Cargo.toml",
+      "language": "toml",
+      "sizeLines": 30,
+      "fileCategory": "config"
+    },
+    {
+      "path": "e2e-tests/src/lib.rs",
+      "language": "rust",
+      "sizeLines": 9,
+      "fileCategory": "code"
+    },
+    {
+      "path": "e2e-tests/src/tests/e2e_pool_2_in_2_out.rs",
+      "language": "rust",
+      "sizeLines": 286,
+      "fileCategory": "code"
+    },
+    {
+      "path": "e2e-tests/src/tests/mod.rs",
+      "language": "rust",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "e2e-tests/src/tests/utils.rs",
+      "language": "rust",
+      "sizeLines": 422,
+      "fileCategory": "code"
+    },
+    {
+      "path": "Makefile",
+      "language": "makefile",
+      "sizeLines": 44,
+      "fileCategory": "infra"
+    },
+    {
+      "path": "poseidon2/Cargo.toml",
+      "language": "toml",
+      "sizeLines": 65,
+      "fileCategory": "config"
+    },
+    {
+      "path": "poseidon2/LICENSE-APACHE",
+      "language": "unknown",
+      "sizeLines": 201,
+      "fileCategory": "code"
+    },
+    {
+      "path": "poseidon2/LICENSE-MIT",
+      "language": "unknown",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "poseidon2/README.md",
+      "language": "markdown",
+      "sizeLines": 12,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "poseidon2/src/fields/babybear.rs",
+      "language": "rust",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "poseidon2/src/fields/bls12.rs",
+      "language": "rust",
+      "sizeLines": 8,
+      "fileCategory": "code"
+    },
+    {
+      "path": "poseidon2/src/fields/bn256.rs",
+      "language": "rust",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "poseidon2/src/fields/goldilocks.rs",
+      "language": "rust",
+      "sizeLines": 8,
+      "fileCategory": "code"
+    },
+    {
+      "path": "poseidon2/src/fields/mod.rs",
+      "language": "rust",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "poseidon2/src/fields/pallas.rs",
+      "language": "rust",
+      "sizeLines": 8,
+      "fileCategory": "code"
+    },
+    {
+      "path": "poseidon2/src/fields/utils.rs",
+      "language": "rust",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "poseidon2/src/fields/vesta.rs",
+      "language": "rust",
+      "sizeLines": 8,
+      "fileCategory": "code"
+    },
+    {
+      "path": "poseidon2/src/lib.rs",
+      "language": "rust",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "poseidon2/src/poseidon2/mod.rs",
+      "language": "rust",
+      "sizeLines": 9,
+      "fileCategory": "code"
+    },
+    {
+      "path": "poseidon2/src/poseidon2/poseidon2_instance_babybear.rs",
+      "language": "rust",
+      "sizeLines": 2112,
+      "fileCategory": "code"
+    },
+    {
+      "path": "poseidon2/src/poseidon2/poseidon2_instance_bls12.rs",
+      "language": "rust",
+      "sizeLines": 1801,
+      "fileCategory": "code"
+    },
+    {
+      "path": "poseidon2/src/poseidon2/poseidon2_instance_bn256.rs",
+      "language": "rust",
+      "sizeLines": 1059,
+      "fileCategory": "code"
+    },
+    {
+      "path": "poseidon2/src/poseidon2/poseidon2_instance_goldilocks.rs",
+      "language": "rust",
+      "sizeLines": 2998,
+      "fileCategory": "code"
+    },
+    {
+      "path": "poseidon2/src/poseidon2/poseidon2_instance_pallas.rs",
+      "language": "rust",
+      "sizeLines": 1525,
+      "fileCategory": "code"
+    },
+    {
+      "path": "poseidon2/src/poseidon2/poseidon2_instance_vesta.rs",
+      "language": "rust",
+      "sizeLines": 357,
+      "fileCategory": "code"
+    },
+    {
+      "path": "poseidon2/src/poseidon2/poseidon2_params.rs",
+      "language": "rust",
+      "sizeLines": 86,
+      "fileCategory": "code"
+    },
+    {
+      "path": "poseidon2/src/poseidon2/poseidon2.rs",
+      "language": "rust",
+      "sizeLines": 683,
+      "fileCategory": "code"
+    },
+    {
+      "path": "poseidon2/src/utils.rs",
+      "language": "rust",
+      "sizeLines": 105,
+      "fileCategory": "code"
+    },
+    {
+      "path": "poseidon2/tests/poseidon2_test.rs",
+      "language": "rust",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "README.md",
+      "language": "markdown",
+      "sizeLines": 154,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "rust-toolchain.toml",
+      "language": "toml",
+      "sizeLines": 4,
+      "fileCategory": "config"
+    },
+    {
+      "path": "rustfmt.toml",
+      "language": "toml",
+      "sizeLines": 26,
+      "fileCategory": "config"
+    },
+    {
+      "path": "scripts/build-verifier-with-vk.sh",
+      "language": "shell",
+      "sizeLines": 77,
+      "fileCategory": "script"
+    },
+    {
+      "path": "SECURITY.md",
+      "language": "markdown",
+      "sizeLines": 21,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "tools/ceremony-cli/Cargo.toml",
+      "language": "toml",
+      "sizeLines": 31,
+      "fileCategory": "config"
+    },
+    {
+      "path": "tools/ceremony-cli/README.md",
+      "language": "markdown",
+      "sizeLines": 183,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "tools/ceremony-cli/src/export_deployment.rs",
+      "language": "rust",
+      "sizeLines": 87,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tools/ceremony-cli/src/main.rs",
+      "language": "rust",
+      "sizeLines": 697,
+      "fileCategory": "code"
+    },
+    {
+      "path": "Trunk.toml",
+      "language": "toml",
+      "sizeLines": 67,
+      "fileCategory": "config"
+    }
+  ],
+  "totalFiles": 220,
+  "filteredByIgnore": 2,
+  "estimatedComplexity": "large",
+  "importMap": {
+    "_typos.toml": [],
+    ".cargo/config.toml": [],
+    ".githooks/pre-push": [],
+    ".github/pull_request_template.md": [],
+    ".github/workflows/build-and-test.yml": [],
+    ".github/workflows/contracts-build.yml": [],
+    ".github/workflows/coverage-pr.yml": [],
+    ".github/workflows/coverage.yml": [],
+    ".github/workflows/dependency-audit.yml": [],
+    ".github/workflows/deployment.yml": [],
+    ".github/workflows/linter.yml": [],
+    ".github/workflows/semver-checks.yml": [],
+    ".github/workflows/test-ignored.yml": [],
+    ".github/workflows/ub-detection.yml": [],
+    ".github/workflows/wasm-build.yml": [],
+    ".understand-anything/.understandignore": [],
+    "app/admin.html": [],
+    "app/ARCHITECTURE.md": [],
+    "app/crates/core/prover/Cargo.toml": [],
+    "app/crates/core/prover/src/crypto.rs": [
+      "app/crates/core/prover/src/serialization.rs"
+    ],
+    "app/crates/core/prover/src/encryption.rs": [
+      "app/crates/core/prover/src/crypto.rs"
+    ],
+    "app/crates/core/prover/src/flows.rs": [],
+    "app/crates/core/prover/src/lib.rs": [
+      "app/crates/core/prover/src/crypto.rs",
+      "app/crates/core/prover/src/encryption.rs",
+      "app/crates/core/prover/src/flows.rs",
+      "app/crates/core/prover/src/merkle.rs",
+      "app/crates/core/prover/src/notes.rs",
+      "app/crates/core/prover/src/prover.rs",
+      "app/crates/core/prover/src/r1cs.rs",
+      "app/crates/core/prover/src/serialization.rs",
+      "app/crates/core/prover/src/sparse_merkle.rs",
+      "app/crates/core/prover/src/types.rs"
+    ],
+    "app/crates/core/prover/src/merkle.rs": [],
+    "app/crates/core/prover/src/notes.rs": [],
+    "app/crates/core/prover/src/prover.rs": [],
+    "app/crates/core/prover/src/r1cs.rs": [],
+    "app/crates/core/prover/src/serialization.rs": [
+      "app/crates/core/prover/src/types.rs"
+    ],
+    "app/crates/core/prover/src/sparse_merkle.rs": [],
+    "app/crates/core/prover/src/types.rs": [],
+    "app/crates/core/state/build.rs": [],
+    "app/crates/core/state/Cargo.toml": [],
+    "app/crates/core/state/src/disclaimer.md": [],
+    "app/crates/core/state/src/disclaimer.rs": [],
+    "app/crates/core/state/src/events_parsers.rs": [],
+    "app/crates/core/state/src/lib.rs": [
+      "app/crates/core/state/src/disclaimer.rs",
+      "app/crates/core/state/src/events_parsers.rs",
+      "app/crates/core/state/src/processor.rs",
+      "app/crates/core/state/src/storage.rs"
+    ],
+    "app/crates/core/state/src/processor.rs": [],
+    "app/crates/core/state/src/schema.sql": [],
+    "app/crates/core/state/src/storage.rs": [
+      "app/crates/core/state/src/disclaimer.rs"
+    ],
+    "app/crates/core/stellar/Cargo.toml": [],
+    "app/crates/core/stellar/src/contract_state.rs": [],
+    "app/crates/core/stellar/src/conversions.rs": [
+      "app/crates/core/stellar/src/rpc.rs"
+    ],
+    "app/crates/core/stellar/src/ext_data_hash.rs": [],
+    "app/crates/core/stellar/src/indexer.rs": [
+      "app/crates/core/stellar/src/rpc.rs"
+    ],
+    "app/crates/core/stellar/src/lib.rs": [
+      "app/crates/core/stellar/src/contract_state.rs",
+      "app/crates/core/stellar/src/conversions.rs",
+      "app/crates/core/stellar/src/ext_data_hash.rs",
+      "app/crates/core/stellar/src/indexer.rs",
+      "app/crates/core/stellar/src/rpc.rs"
+    ],
+    "app/crates/core/stellar/src/rpc.rs": [],
+    "app/crates/core/types/Cargo.toml": [],
+    "app/crates/core/types/src/amounts.rs": [
+      "app/crates/core/types/src/amounts.rs"
+    ],
+    "app/crates/core/types/src/chain_data.rs": [],
+    "app/crates/core/types/src/ext_data.rs": [],
+    "app/crates/core/types/src/lib.rs": [
+      "app/crates/core/types/src/amounts.rs",
+      "app/crates/core/types/src/chain_data.rs",
+      "app/crates/core/types/src/ext_data.rs"
+    ],
+    "app/crates/core/witness/Cargo.toml": [],
+    "app/crates/core/witness/src/lib.rs": [],
+    "app/crates/platforms/web/build.rs": [],
+    "app/crates/platforms/web/Cargo.toml": [],
+    "app/crates/platforms/web/src/bin/prover_worker.rs": [],
+    "app/crates/platforms/web/src/bin/storage_worker.rs": [],
+    "app/crates/platforms/web/src/client.rs": [],
+    "app/crates/platforms/web/src/config.rs": [],
+    "app/crates/platforms/web/src/lib.rs": [
+      "app/crates/platforms/web/src/client.rs",
+      "app/crates/platforms/web/src/config.rs",
+      "app/crates/platforms/web/src/protocol.rs",
+      "app/crates/platforms/web/src/workers.rs"
+    ],
+    "app/crates/platforms/web/src/protocol.rs": [],
+    "app/crates/platforms/web/src/workers.rs": [],
+    "app/crates/platforms/web/src/workers/prover.rs": [
+      "app/crates/platforms/web/src/protocol.rs"
+    ],
+    "app/crates/platforms/web/src/workers/storage.rs": [
+      "app/crates/platforms/web/src/protocol.rs"
+    ],
+    "app/css/app.css": [],
+    "app/index.html": [],
+    "app/js/admin.js": [
+      "app/js/wallet.js",
+      "app/js/wasm-facade.js"
+    ],
+    "app/js/stellar.js": [
+      "app/js/wallet.js"
+    ],
+    "app/js/ui.js": [
+      "app/js/ui/address-book.js",
+      "app/js/ui/navigation.js",
+      "app/js/ui/notes-table.js",
+      "app/js/ui/onchain-state.js",
+      "app/js/ui/pool-events.js",
+      "app/js/ui/templates.js",
+      "app/js/ui/transactions.js"
+    ],
+    "app/js/ui/address-book.js": [
+      "app/js/ui/core.js",
+      "app/js/wasm-facade.js"
+    ],
+    "app/js/ui/core.js": [],
+    "app/js/ui/errors.js": [],
+    "app/js/ui/index.js": [],
+    "app/js/ui/navigation.js": [
+      "app/js/stellar.js",
+      "app/js/ui/core.js",
+      "app/js/ui/onboarding-wizard.js",
+      "app/js/ui/templates.js",
+      "app/js/wallet.js",
+      "app/js/wasm-facade.js"
+    ],
+    "app/js/ui/notes-table.js": [
+      "app/js/ui/core.js",
+      "app/js/ui/templates.js",
+      "app/js/wasm-facade.js"
+    ],
+    "app/js/ui/onboarding-wizard.js": [
+      "app/js/wallet.js",
+      "app/js/wasm-facade.js"
+    ],
+    "app/js/ui/onchain-state.js": [
+      "app/js/ui/core.js",
+      "app/js/wasm-facade.js"
+    ],
+    "app/js/ui/persistent-storage.js": [
+      "app/js/ui/core.js"
+    ],
+    "app/js/ui/pool-events.js": [
+      "app/js/ui/core.js",
+      "app/js/wasm-facade.js"
+    ],
+    "app/js/ui/templates.js": [
+      "app/js/ui/address-book.js",
+      "app/js/ui/core.js"
+    ],
+    "app/js/ui/transactions.js": [
+      "app/js/stellar.js",
+      "app/js/ui/core.js",
+      "app/js/ui/templates.js",
+      "app/js/wasm-facade.js"
+    ],
+    "app/js/wallet.js": [
+      "app/js/wasm-facade.js"
+    ],
+    "app/js/wasm-facade.js": [],
+    "app/package.json": [],
+    "app/README.md": [],
+    "Cargo.toml": [],
+    "circuit-keys/Cargo.toml": [],
+    "circuit-keys/src/lib.rs": [],
+    "circuits/build.rs": [],
+    "circuits/Cargo.toml": [],
+    "circuits/COPYING": [],
+    "circuits/src/core/merkle.rs": [],
+    "circuits/src/core/mod.rs": [
+      "circuits/src/core/merkle.rs"
+    ],
+    "circuits/src/keypair.circom": [],
+    "circuits/src/lib.rs": [
+      "circuits/src/core/mod.rs",
+      "circuits/src/test/mod.rs"
+    ],
+    "circuits/src/merkleProof.circom": [],
+    "circuits/src/merkleTree.circom": [],
+    "circuits/src/merkleTreeUpdater.circom": [],
+    "circuits/src/policy_tx_2_2.circom": [],
+    "circuits/src/policyTransaction.circom": [],
+    "circuits/src/poseidon2/poseidon2_compress.circom": [],
+    "circuits/src/poseidon2/poseidon2_const.circom": [],
+    "circuits/src/poseidon2/poseidon2_hash.circom": [],
+    "circuits/src/poseidon2/poseidon2_perm.circom": [],
+    "circuits/src/selectiveDisclosure_1.circom": [],
+    "circuits/src/selectiveDisclosure.circom": [],
+    "circuits/src/smt/smthash_poseidon2.circom": [],
+    "circuits/src/smt/smtverifier.circom": [],
+    "circuits/src/smt/smtverifierlevel.circom": [],
+    "circuits/src/test/circuits/keypair_test.circom": [],
+    "circuits/src/test/circuits/merkleProof_5.circom": [],
+    "circuits/src/test/circuits/poseidon2_compress.circom": [],
+    "circuits/src/test/circuits/poseidon2_hash_2.circom": [],
+    "circuits/src/test/circuits/signature_test.circom": [],
+    "circuits/src/test/circuits/sparse_merkle_tree.circom": [],
+    "circuits/src/test/circuits/transaction2.circom": [],
+    "circuits/src/test/mod.rs": [
+      "circuits/src/test/prove_keypair.rs",
+      "circuits/src/test/prove_merkle.rs",
+      "circuits/src/test/prove_policy.rs",
+      "circuits/src/test/prove_poseidon2.rs",
+      "circuits/src/test/prove_selective_disclosure.rs",
+      "circuits/src/test/prove_sparse.rs",
+      "circuits/src/test/prove_transaction.rs",
+      "circuits/src/test/utils/mod.rs"
+    ],
+    "circuits/src/test/prove_keypair.rs": [],
+    "circuits/src/test/prove_merkle.rs": [],
+    "circuits/src/test/prove_policy.rs": [],
+    "circuits/src/test/prove_poseidon2.rs": [],
+    "circuits/src/test/prove_selective_disclosure.rs": [],
+    "circuits/src/test/prove_sparse.rs": [],
+    "circuits/src/test/prove_transaction.rs": [],
+    "circuits/src/test/utils/circom_tester.rs": [],
+    "circuits/src/test/utils/general.rs": [],
+    "circuits/src/test/utils/keypair.rs": [],
+    "circuits/src/test/utils/merkle_tree.rs": [
+      "circuits/src/core/merkle.rs"
+    ],
+    "circuits/src/test/utils/mod.rs": [
+      "circuits/src/test/utils/circom_tester.rs",
+      "circuits/src/test/utils/general.rs",
+      "circuits/src/test/utils/keypair.rs",
+      "circuits/src/test/utils/merkle_tree.rs",
+      "circuits/src/test/utils/sparse_merkle_tree.rs",
+      "circuits/src/test/utils/transaction_case.rs",
+      "circuits/src/test/utils/transaction.rs"
+    ],
+    "circuits/src/test/utils/sparse_merkle_tree.rs": [
+      "circuits/src/test/utils/general.rs"
+    ],
+    "circuits/src/test/utils/transaction_case.rs": [
+      "circuits/src/test/utils/circom_tester.rs"
+    ],
+    "circuits/src/test/utils/transaction.rs": [],
+    "circuits/src/transaction.circom": [],
+    "CODEOWNERS": [],
+    "contracts/asp-membership/Cargo.toml": [],
+    "contracts/asp-membership/Makefile": [],
+    "contracts/asp-membership/src/lib.rs": [
+      "contracts/asp-membership/src/test.rs"
+    ],
+    "contracts/asp-membership/src/test.rs": [],
+    "contracts/asp-non-membership/Cargo.toml": [],
+    "contracts/asp-non-membership/Makefile": [],
+    "contracts/asp-non-membership/src/lib.rs": [
+      "contracts/asp-non-membership/src/test.rs"
+    ],
+    "contracts/asp-non-membership/src/test.rs": [],
+    "contracts/circom-groth16-verifier/build.rs": [],
+    "contracts/circom-groth16-verifier/Cargo.toml": [],
+    "contracts/circom-groth16-verifier/src/lib.rs": [
+      "contracts/circom-groth16-verifier/src/test.rs"
+    ],
+    "contracts/circom-groth16-verifier/src/test.rs": [],
+    "contracts/pool/Cargo.toml": [],
+    "contracts/pool/Makefile": [],
+    "contracts/pool/src/lib.rs": [
+      "contracts/pool/src/merkle_with_history.rs",
+      "contracts/pool/src/pool.rs",
+      "contracts/pool/src/test.rs"
+    ],
+    "contracts/pool/src/merkle_with_history.rs": [],
+    "contracts/pool/src/pool.rs": [
+      "contracts/pool/src/merkle_with_history.rs"
+    ],
+    "contracts/pool/src/test.rs": [],
+    "contracts/soroban-utils/Cargo.toml": [],
+    "contracts/soroban-utils/src/constants.rs": [],
+    "contracts/soroban-utils/src/lib.rs": [
+      "contracts/soroban-utils/src/constants.rs",
+      "contracts/soroban-utils/src/poseidon2.rs",
+      "contracts/soroban-utils/src/utils.rs"
+    ],
+    "contracts/soroban-utils/src/poseidon2.rs": [
+      "contracts/soroban-utils/src/constants.rs"
+    ],
+    "contracts/soroban-utils/src/utils.rs": [],
+    "contracts/types/Cargo.toml": [],
+    "contracts/types/src/lib.rs": [],
+    "CONTRIBUTING.md": [],
+    "deny.toml": [],
+    "deployments/legal/licenses/LGPL-3.0.txt": [],
+    "deployments/legal/README.md": [],
+    "deployments/scripts/deploy.sh": [],
+    "deployments/scripts/package-circuits-source-bundle.sh": [],
+    "deployments/scripts/stage-dist-legal.sh": [],
+    "deployments/testnet/circuit_keys/policy_tx_2_2_proving_key.bin": [],
+    "deployments/testnet/circuit_keys/policy_tx_2_2_vk_const.rs": [],
+    "deployments/testnet/circuit_keys/policy_tx_2_2_vk_soroban.bin": [],
+    "deployments/testnet/circuit_keys/policy_tx_2_2_vk.json": [],
+    "deployments/testnet/circuit_keys/README.md": [],
+    "deployments/testnet/deployments.json": [],
+    "docs/book.toml": [],
+    "docs/src/api.md": [],
+    "docs/src/app.md": [],
+    "docs/src/architecture.md": [],
+    "docs/src/contributing.md": [],
+    "docs/src/introduction.md": [],
+    "docs/src/security.md": [],
+    "docs/src/SUMMARY.md": [],
+    "e2e-tests/Cargo.toml": [],
+    "e2e-tests/src/lib.rs": [
+      "e2e-tests/src/tests/mod.rs"
+    ],
+    "e2e-tests/src/tests/e2e_pool_2_in_2_out.rs": [],
+    "e2e-tests/src/tests/mod.rs": [
+      "e2e-tests/src/tests/e2e_pool_2_in_2_out.rs",
+      "e2e-tests/src/tests/utils.rs"
+    ],
+    "e2e-tests/src/tests/utils.rs": [],
+    "Makefile": [],
+    "poseidon2/Cargo.toml": [],
+    "poseidon2/LICENSE-APACHE": [],
+    "poseidon2/LICENSE-MIT": [],
+    "poseidon2/README.md": [],
+    "poseidon2/src/fields/babybear.rs": [],
+    "poseidon2/src/fields/bls12.rs": [],
+    "poseidon2/src/fields/bn256.rs": [],
+    "poseidon2/src/fields/goldilocks.rs": [],
+    "poseidon2/src/fields/mod.rs": [
+      "poseidon2/src/fields/babybear.rs",
+      "poseidon2/src/fields/bls12.rs",
+      "poseidon2/src/fields/bn256.rs",
+      "poseidon2/src/fields/goldilocks.rs",
+      "poseidon2/src/fields/pallas.rs",
+      "poseidon2/src/fields/utils.rs",
+      "poseidon2/src/fields/vesta.rs"
+    ],
+    "poseidon2/src/fields/pallas.rs": [],
+    "poseidon2/src/fields/utils.rs": [],
+    "poseidon2/src/fields/vesta.rs": [],
+    "poseidon2/src/lib.rs": [
+      "poseidon2/src/fields/mod.rs",
+      "poseidon2/src/poseidon2/mod.rs",
+      "poseidon2/src/utils.rs"
+    ],
+    "poseidon2/src/poseidon2/mod.rs": [
+      "poseidon2/src/poseidon2/poseidon2_instance_babybear.rs",
+      "poseidon2/src/poseidon2/poseidon2_instance_bls12.rs",
+      "poseidon2/src/poseidon2/poseidon2_instance_bn256.rs",
+      "poseidon2/src/poseidon2/poseidon2_instance_goldilocks.rs",
+      "poseidon2/src/poseidon2/poseidon2_instance_pallas.rs",
+      "poseidon2/src/poseidon2/poseidon2_instance_vesta.rs",
+      "poseidon2/src/poseidon2/poseidon2_params.rs",
+      "poseidon2/src/poseidon2/poseidon2.rs"
+    ],
+    "poseidon2/src/poseidon2/poseidon2_instance_babybear.rs": [
+      "poseidon2/src/fields/mod.rs"
+    ],
+    "poseidon2/src/poseidon2/poseidon2_instance_bls12.rs": [
+      "poseidon2/src/fields/mod.rs"
+    ],
+    "poseidon2/src/poseidon2/poseidon2_instance_bn256.rs": [
+      "poseidon2/src/fields/mod.rs"
+    ],
+    "poseidon2/src/poseidon2/poseidon2_instance_goldilocks.rs": [
+      "poseidon2/src/fields/mod.rs"
+    ],
+    "poseidon2/src/poseidon2/poseidon2_instance_pallas.rs": [
+      "poseidon2/src/fields/mod.rs"
+    ],
+    "poseidon2/src/poseidon2/poseidon2_instance_vesta.rs": [
+      "poseidon2/src/fields/mod.rs"
+    ],
+    "poseidon2/src/poseidon2/poseidon2_params.rs": [],
+    "poseidon2/src/poseidon2/poseidon2.rs": [],
+    "poseidon2/src/utils.rs": [],
+    "poseidon2/tests/poseidon2_test.rs": [],
+    "README.md": [],
+    "rust-toolchain.toml": [],
+    "rustfmt.toml": [],
+    "scripts/build-verifier-with-vk.sh": [],
+    "SECURITY.md": [],
+    "tools/ceremony-cli/Cargo.toml": [],
+    "tools/ceremony-cli/README.md": [],
+    "tools/ceremony-cli/src/export_deployment.rs": [],
+    "tools/ceremony-cli/src/main.rs": [
+      "tools/ceremony-cli/src/export_deployment.rs"
+    ],
+    "Trunk.toml": []
+  }
+}

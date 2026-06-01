@@ -1,0 +1,55 @@
+# .understandignore — patterns for files/dirs to exclude from analysis
+# Syntax: same as .gitignore (globs, # comments, ! negation, trailing / for dirs)
+#
+# Built-in defaults (always excluded unless negated):
+#   node_modules/, .git/, dist/, build/, obj/, *.lock, *.min.js, etc.
+#
+
+# --- Active exclusions ---
+
+# Vendored third-party crates
+vendor/
+
+# Cargo & build outputs
+debug/
+*.pdb
+**/*.rs.bk
+lcov.info
+
+# Circom compiled artifacts
+circuits/compiled
+circuits/src/circomlib/
+circuits/**/*.r1cs
+circuits/**/*.sym
+circuits/**/*.wasm
+circuits/**/*.cpp
+circuits/**/*.hpp
+circuits/**/*.asm
+circuits/**/witness_calculator.js
+circuits/**/generate_witness.js
+circuits/**/*.dat
+circuits/**/Makefile
+
+# Test snapshots (binary)
+contracts/**/test_snapshots/
+e2e-tests/test_snapshots/
+
+# App build outputs
+app/node_modules
+app/dist/
+app/e2e/.freighter-extension/
+app/e2e/test-results/
+app/e2e/playwright-report/
+
+# Test data & books
+testdata/
+docs/book/
+
+# Ceremony output
+ceremony/
+*.ptau
+artifacts.zip
+
+# Sage scripts (math helpers, not project source)
+*.sage
+*.sage.py
