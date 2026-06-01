@@ -88,22 +88,37 @@ If you want to try it out:
     ```bash
       make serve
     ```
-    Open `http://localhost:8080` in your browser. You might want to open the console (_Shift + Ctrl + I_) to see the logs.
+    Open `http://localhost:8000` in your browser. You might want to open the console (_Shift + Ctrl + I_) to see the logs.
     You might need to delete the browser cache from previous runs. Go to `Application` -> `Clear storage`.
 
 
-4. The pool is ready to use. But you will need to populate the ASP membership smart contracts with some public keys. You can do it directly from the stellar-cli:
-    ```bash
-    stellar contract invoke --id <CONTRACT_ADDRESS> --source-account <ASP_ADMIN_ACCOUNT> -- insert_leaf --leaf <LEAF_VALUE> # See circuit for leaf format
+4. Register a demo user in the ASP membership tree. Open `http://localhost:8000/admin.html`, connect the user wallet, click **Derive Keys**, set **Blinding** to `0`, then click **Compute Leaf**. Copy either **Computed Leaf (hex)** or **Computed Leaf (decimal)**.
+
+   The membership leaf is:
+    ```text
+    Poseidon2(user_privacy_public_key, membership_blinding, domain=1)
     ```
-    Or, directly access `http://localhost:8080/admin.html` and use the UI to add public keys.
-    Please note that the admin UI allows deriving keys for ANY account.
-    But insertion MUST be signed by the ASP admin account.
-    You can add your Freighter account to your Stellar-cli keys with `stellar keys add <NAME_FOR_ACCOUNT> --seed-phrase`.
-    This will prompt you to type your seed phrase and will enable you to deploy contracts with the same account you have on your browser wallet.
 
+   For this demo, keep `membership_blinding = 0`. The same value must be used later in the main app.
 
-5. Go back to `http://localhost:8080` and try it out!
+5. Insert the computed membership leaf. Membership inserts are admin-only by default, so this transaction must be signed by the ASP admin account. Unless `--admin` was passed during deployment, the admin is the deployer identity from step 1.
+
+   You can insert the copied leaf from the admin page by switching Freighter to the admin/deployer wallet and clicking **Insert Membership Leaf**.
+
+   Or insert it from the Stellar CLI:
+    ```bash
+    stellar contract invoke \
+      --network testnet \
+      --source-account deployer \
+      --id <ASP_MEMBERSHIP_CONTRACT_ID> \
+      -- \
+      insert_leaf \
+      --leaf <COMPUTED_LEAF_DECIMAL_OR_HEX>
+    ```
+
+   The `<ASP_MEMBERSHIP_CONTRACT_ID>` value is the `asp_membership` field in `deployments/testnet/deployments.json`.
+
+6. Go back to `http://localhost:8000` and try it out. Connect the demo user wallet, derive keys if prompted, and use membership blinding `0` when preparing deposits, transfers, or withdrawals.
 
 ### Architecture Overview
 
